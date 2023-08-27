@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News-Api</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+
+
+
+    <!-- styles  -->
+    <style>
+        body {
+            margin: 0;
+            background-color: #C08261;
+            font-family: 'Roboto Slab', serif;
+            padding-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            color: #F2ECBE;
+            background-color: #9A3B3B;
+            margin-bottom: 15px;
+        }
+
+        .header__search input[type=text] {
+            padding: 6px;
+            border: none;
+        }
+
+        .header__search input[type=submit] {
+            float: right;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .wrapper {
+            padding: 0 1rem;
+        }
+
+        .news {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .news__card {
+            border-radius: 20px;
+            text-decoration: none;
+            color: black;
+            background-color: #E2C799;
+            padding: 20px;
+        }
+
+        .news__card:hover {
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16), 0 5px 5px rgba(0, 0, 0, 0.23);
+        }
+
+        hr {
+            width: 70%;
+            border-top: rgb(83, 79, 79) 2px solid;
+        }
+
+        .Brand-logo {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            padding-left: 20px;
+            font-size: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header" id="header">
+
+        <div class="head__logo">
+            <h2 class="Brand-logo">News-Spot.</h2>
+        </div>
+        <div class="head__logo">
+            <a href="#" style="padding-right: 15px;"><img src="img\India.png" alt="" /></a>
+        </div>
+
+    </header>
+
+    <div class="wrapper">
+        <div class="news">
+
+            <% if (data!=null) { %>
+                <% data.articles.forEach(function (article) { %>
+                    <a href="<%= article.url %>" target="_blank" class="news__card">
+                        <img src="<%= article.urlToImage %>" alt="Image">
+                        <b>
+                            <hr>
+                        </b>
+                        <h2>
+                            <%= article.title %>
+                        </h2>
+                        <p style="margin-bottom: 0 !important;"">
+                            <%= article.description %>
+                        </p>
+                        <p style=" margin-top: 0 !important; " ><b>Read more</b>...</p>
+
+                        <p><b>Author :</b>
+                            <%= article.author %> <br> <b>Date : </b>
+                                <%= article.publishedAt %>
+                        </p>
+                    </a>
+                    <% }) %>
+                        <% } else { %>
+                            <%- include('partials/error.ejs') %>
+
+                            <% } %>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+                            crossorigin="anonymous">
+                            </script> -->
+</body>
+
+</html>

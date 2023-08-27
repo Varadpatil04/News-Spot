@@ -1,0 +1,7 @@
+<!-- <%= article.title %> -->
+
+
+<%= article.urlToImage %>
+
+
+<!-- <%= article.url %> -->
